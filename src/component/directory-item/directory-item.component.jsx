@@ -36,7 +36,7 @@ const DirectoryItemBody = styled.div`
 
 const DirectoryItemContainer = styled.div`
   min-width: 30%;
-  height: 249px;
+  height: 296px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
