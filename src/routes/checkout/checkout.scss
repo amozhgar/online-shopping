@@ -13,6 +13,12 @@
     justify-content: space-between;
     border-bottom: 1px solid darkgrey;
 
+    @media screen and (max-width: 800px) {
+      width: 170%;
+      display: grid;
+      grid-template-columns: repeat(5, 0fr);
+      padding-right: 20px;
+    }
     .header-block {
       text-transform: capitalize;
       width: 23%;
@@ -27,5 +33,10 @@
     margin-top: 30px;
     margin-left: auto;
     font-size: 36px;
+
+    @media screen and (max-width: 800px) {
+      margin-left: 90px;
+      font-size: 30px;
+    }
   }
 }

@@ -9,6 +9,7 @@ import {
   GoogleSigninButton,
   InvertedButton,
 } from "../button/button.component";
+import { useCallback } from "react";
 
 const CartDropdownContainer = styled.div`
   position: absolute;
@@ -28,6 +29,17 @@ const CartDropdownContainer = styled.div`
   ${InvertedButton} {
     font-size: 12px;
     margin-top: auto;
+
+    @media screen and (max-width: 800px) {
+      font-size: 9px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    top: 50px;
+    right: 20px;
+    width: 200px;
+    height: 300px;
   }
 `;
 
@@ -47,9 +59,10 @@ const CartDropdown = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const goToCheckOutPage = () => {
+  const goToCheckOutPage = useCallback(() => {
     navigate("/checkout");
-  };
+  }, []);
+
   return (
     <CartDropdownContainer>
       <CartItems>

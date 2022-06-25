@@ -1,8 +1,8 @@
 import { CartContext } from "../../contexts/cart.context";
 import "./checkout-item.scss";
-import { useContext } from "react";
+import { memo, useContext } from "react";
 
-const CheckoutItem = ({ cartItem }) => {
+const CheckoutItem = memo(({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   const { clearItemFromCart, addItemToCart, removeItemToCart } =
     useContext(CartContext);
@@ -32,6 +32,6 @@ const CheckoutItem = ({ cartItem }) => {
       </div>
     </div>
   );
-};
+});
 
 export default CheckoutItem;

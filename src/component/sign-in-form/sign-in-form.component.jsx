@@ -44,7 +44,7 @@ const SignInForm = () => {
           alert("no user associated with this email");
           break;
         default:
-          console.log(error);
+          break;
       }
     }
   };
@@ -78,11 +78,14 @@ const SignInForm = () => {
           value={password}
         />
         <div className="buttons-container">
-          <Button type="submit">Sign In</Button>
+          <Button type="submit" style={{ marginBottom: "15px" }}>
+            Sign In
+          </Button>
           <Button
             type="button"
             buttontype={Button_Type_Classes.google}
             onClick={signInWithGoogle}
+            style={{ fontSize: "14px" }}
           >
             Google sign in
           </Button>
