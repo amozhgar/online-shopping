@@ -1,6 +1,7 @@
 import SignUpForm from "../../component/sign-up-form/sign-up-form.component";
 import SignInForm from "../../component/sign-in-form/sign-in-form.component";
 import styled from "styled-components";
+import ButtonBack from "../../component/button-back/button-back";
 
 const AuthContainer = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ const AuthContainer = styled.div`
 const Authentication = () => {
   return (
     <AuthContainer>
+      <ButtonBack />
       <SignInForm />
       <SignUpForm />
     </AuthContainer>

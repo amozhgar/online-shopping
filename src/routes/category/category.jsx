@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import ButtonBack from "../../component/button-back/button-back";
 import ProductCard from "../../component/product-card/product-card.component";
 import { CategoriesContext } from "../../contexts/categories.context";
 
@@ -36,7 +37,18 @@ const Category = () => {
 
   return (
     <>
-      <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "row",
+        }}
+      >
+        <ButtonBack />
+        <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+      </div>
+
       <CategoryContainer>
         {products &&
           products.map((product) => (
