@@ -8,18 +8,21 @@ import { CategoriesProvider } from "./contexts/categories.context";
 import { CartProvider } from "./contexts/cart.context";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import { ThemeContextProvider } from "./contexts/theme.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <CategoriesProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </CategoriesProvider>
-      </BrowserRouter>
+      <ThemeContextProvider>
+        <BrowserRouter>
+          <CategoriesProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </CategoriesProvider>
+        </BrowserRouter>
+      </ThemeContextProvider>
     </Provider>
   </React.StrictMode>
 );

@@ -10,6 +10,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#white {
+  transition: 0.4s all;
+}
+
+#black,
+#black body {
+  background-color: #000000;
+  transition: 0.4s all;
+}
+
+#black span {
+  color: #ffffff;
+}
+#black a {
+  color: #ffffff;
+}
+#black h2 {
+  color: #ffffff;
+}
+
+#black p {
+  color: #ffffff;
+}
+
+#black div {
+  color: #ffffff;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

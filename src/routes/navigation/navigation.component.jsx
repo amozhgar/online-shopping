@@ -8,6 +8,8 @@ import CartDropdown from "../../component/cart-dropdown/cart-dropdown.component"
 import { CartContext } from "../../contexts/cart.context";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import styled from "styled-components";
+import ReactSwitch from "react-switch";
+import { ThemeContext } from "../../contexts/theme.context";
 
 const NavigationContainer = styled.div`
   height: 70px;
@@ -52,6 +54,7 @@ const NavLink = styled(Link)`
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <Fragment>
       <NavigationContainer>
@@ -69,6 +72,7 @@ const Navigation = () => {
             <NavLink to="/auth">SIGN IN</NavLink>
           )}
           <CartIcon />
+          <ReactSwitch onChange={toggleTheme} checked={theme === "black"} />
         </NavLinkContainer>
         {isCartOpen && <CartDropdown />}
       </NavigationContainer>

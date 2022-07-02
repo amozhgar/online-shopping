@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { ThemeContext } from "../../contexts/theme.context";
 
 const BackgroundImage = styled.div`
   width: 100%;
@@ -75,11 +77,12 @@ const DirectoryItem = ({ category }) => {
   const { imageUrl, title, route } = category;
   const navigate = useNavigate();
   const onNavigateHandler = () => navigate(route);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <DirectoryItemContainer onClick={onNavigateHandler}>
       <BackgroundImage imageUrl={imageUrl} />
-      <DirectoryItemBody>
+      <DirectoryItemBody id={theme}>
         <h2>{title}</h2>
         <p>Shop Now</p>
       </DirectoryItemBody>

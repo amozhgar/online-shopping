@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { onAuthStateChangedListener } from "./utils/firebase/firebase.utils";
 import { createUserDocumentFromAuth } from "./utils/firebase/firebase.utils";
 import { setCurrentUser } from "./store/user/user.action";
 import { GlobalStyle } from "./global.styles";
+import { ThemeContext } from "./contexts/theme.context";
 // import Home from "./routes/home/home.component";
 // import Navigation from "./routes/navigation/navigation.component";
 // import Authentication from "./routes/authentication/authentication.component";
@@ -15,13 +16,16 @@ const Navigation = lazy(() =>
   import("./routes/navigation/navigation.component")
 );
 const Home = lazy(() => import("./routes/home/home.component"));
+
 const Authentication = lazy(() =>
   import("./routes/authentication/authentication.component")
 );
 const Shop = lazy(() => import("./routes/shop/shop.component"));
+
 const Checkout = lazy(() => import("./routes/checkout/checkout"));
 
 const App = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
@@ -34,8 +38,10 @@ const App = () => {
     return unsubscribe;
   }, [dispatch]);
 
+  document.body.style.background = `${theme}`;
+
   return (
-    <div>
+    <div id={theme}>
       <GlobalStyle />
       <Suspense>
         <Routes>
