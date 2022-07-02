@@ -84,7 +84,7 @@ const SignInForm = () => {
             type="button"
             buttontype={Button_Type_Classes.google}
             onClick={signInWithGoogle}
-            style={{ fontSize: "14px" }}
+            style={{ fontSize: "13px" }}
           >
             Google sign in
           </Button>
